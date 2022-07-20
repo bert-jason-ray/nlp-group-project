@@ -10,7 +10,7 @@ import os
 import json
 from typing import Dict, List, Optional, Union, cast
 import requests
-
+import pandas as pd
 from env import github_token, github_username
 
 # TODO: Make a github personal access token.
@@ -305,3 +305,23 @@ def scrape_github_data() -> List[Dict[str, str]]:
 if __name__ == "__main__":
     data = scrape_github_data()
     json.dump(data, open("data.json", "w"), indent=1)
+
+def get_github_data():
+    #in this data set I will be importing (Properties_2017, Predictions_2017, Propertylandusetype) to allow me to look into zillows single family home data. (which is what we are interested in."""
+    filename = "musicbot_data.csv"
+
+    if os.path.isfile(filename):
+        return pd.read_csv(filename)
+    else:
+        
+        #summoning data from acquire file
+        df = scrape_github_data()
+        #turning into a data frame
+        df = pd.DataFrame(df)
+        #turning it into a csv
+        df.to_csv('musicbot_data.csv')
+        df.to_csv(filename, index = False)
+        #changing it csv because its a csv
+
+        # Return the dataframe to the calling code
+        return df
