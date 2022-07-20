@@ -20,8 +20,7 @@ from env import github_token, github_username
 # TODO: Add your github username to your env.py file under the variable `github_username`
 # TODO: Add more repositories to the `REPOS` list below.
 
-REPOS = [
-    'jagrosh/MusicBot',
+REPOS = ['jagrosh/MusicBot',
     'Just-Some-Bots/MusicBot',
     'SudhanPlayz/Discord-MusicBot',
     'IVETRI/SongPlayRoBot',
