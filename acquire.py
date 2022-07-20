@@ -307,7 +307,7 @@ if __name__ == "__main__":
     json.dump(data, open("data.json", "w"), indent=1)
 
 def get_github_data():
-    #in this data set I will be importing (Properties_2017, Predictions_2017, Propertylandusetype) to allow me to look into zillows single family home data. (which is what we are interested in."""
+    """ importing data from github music bot repositories"""
     filename = "musicbot_data.csv"
 
     if os.path.isfile(filename):
