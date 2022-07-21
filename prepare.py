@@ -5,6 +5,7 @@ import json
 import nltk
 from nltk.tokenize.toktok import ToktokTokenizer
 from nltk.corpus import stopwords
+from sklearn.model_selection import train_test_split
 
 import pandas as pd
 import acquire
@@ -113,3 +114,16 @@ def prep_github_data(df, column = 'readme_contents', extra_words=[], exclude_wor
     df['lemmatized'] = df['clean'].apply(lemmatize)
     
     return df
+
+def split_github_data(df):
+    '''
+    This function performs split on github data, stratify language.
+    Returns train, validate, and test dfs.
+    '''
+    train_validate, test = train_test_split(df, test_size=.2, 
+                                        random_state=123, 
+                                        stratify=df.language)
+    train, validate = train_test_split(train_validate, test_size=.3, 
+                                   random_state=123, 
+                                   stratify=train_validate.language)
+    return train, validate, test
