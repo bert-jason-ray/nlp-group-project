@@ -25,7 +25,20 @@ def basic_clean(string):
              .encode('ascii', 'ignore')\
              .decode('utf-8', 'ignore')
     string = re.sub(r'[^\w\s]', '', string).lower()
+    #string = re.sub(r'(\&#9;)', '', string)
+    #string = re.sub("&#9;","",string)
+    #string = re.sub(r"[-()\"#/@;:<>{}`+=~|.!?,]", "", string)
+    #string = re.sub('\W+','', string)
+    #string = re.sub(r'\s+', '', string)
     return string
+
+#def basic_clean(text):
+    #text = (unicodedata.normalize('NFKD', text.lower())
+            #.encode('ascii', 'ignore') # ascii to reduce noise
+            #.decode('utf-8', 'ignore') # decode using utf-8
+           #)
+    #return re.sub(r"[^a-z0-9\s]", '', text)
+
 
 def tokenize(string):
     '''
@@ -137,12 +150,13 @@ def prep_github_data(df, column = 'readme_contents', extra_words=[], exclude_wor
                             .apply(tokenize)\
                             .apply(remove_stopwords, 
                                    extra_words=extra_words, exclude_words=exclude_words)
-    
+    df['clean'] = df['clean'].str.replace("&#9;","")
+
     df['stemmed'] = df['clean'].apply(stem)
     
     df['lemmatized'] = df['clean'].apply(lemmatize)
 
-
+    
 
     return df
 
