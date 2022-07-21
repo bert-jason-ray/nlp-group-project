@@ -119,11 +119,6 @@ def get_top_languages(df):
     df = df[mask]
     return df
 
-def clean_dataset(df):
-    assert isinstance(df, pd.DataFrame), "df needs to be a pd.DataFrame"
-    df.dropna(inplace=True)
-    indices_to_keep = ~df.isin([np.nan, np.inf, -np.inf]).any(1)
-    return df[indices_to_keep].astype(np.float64)
 
 def prep_github_data(df, column = 'readme_contents', extra_words=[], exclude_words=[]):
     '''
@@ -138,8 +133,6 @@ def prep_github_data(df, column = 'readme_contents', extra_words=[], exclude_wor
 
     df = get_top_languages(df)
 
-    #df = clean_dataset(df)
-
     df['clean'] = df[column].apply(basic_clean)\
                             .apply(tokenize)\
                             .apply(remove_stopwords, 
@@ -149,8 +142,7 @@ def prep_github_data(df, column = 'readme_contents', extra_words=[], exclude_wor
     
     df['lemmatized'] = df['clean'].apply(lemmatize)
 
-    #df = df['language'].value_counts().loc[lambda x : x>5]
-    #df = df.reset_index()
+
 
     return df
 
@@ -159,12 +151,13 @@ def split_github_data(df):
     This function performs split on github data, stratify language.
     Returns train, validate, and test dfs.
     '''
-    train_validate, test = train_test_split(df, test_size=.2, 
+    train, test = train_test_split(df, test_size=.2, 
                                         random_state=123, stratify=df.language)
-    train, validate = train_test_split(train_validate, test_size=.3, 
-                                   random_state=123, stratify=train_validate.language)
+    #train, validate = train_test_split(train_validate, test_size=.3, 
+                                   #random_state=123, stratify=train_validate.language)
 
     print('train--->', train.shape)
-    print('validate--->', validate.shape)
+    #print('validate--->', validate.shape)
     print('test--->', test.shape)
-    return train, validate, test
+    return train, test
+
