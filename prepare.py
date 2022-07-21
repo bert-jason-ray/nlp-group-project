@@ -94,31 +94,50 @@ def remove_stopwords(string, extra_words = [], exclude_words = []):
     
     return string_without_stopwords
 
-def prep_github_data(df, column, extra_words=[], exclude_words=[]):
+#def prep_github_data(df, column, extra_words=[], exclude_words=[]):
     '''
     This function take in a df and the string name for a text column with 
     option to pass lists for extra_words and exclude_words and
     returns a df with the text article title, original text, stemmed text,
     lemmatized text, cleaned, tokenized, & lemmatized text with stopwords removed.
     '''
+  #  df['clean'] = df[column].apply(basic_clean)\
+                            .apply(tokenize)\
+                            .apply(remove_stopwords, 
+                                   extra_words=extra_words, 
+                                   exclude_words=exclude_words)
+    
+   # df['stemmed'] = df[column].apply(basic_clean)\
+   #                        .apply(tokenize)\
+   #                         .apply(stem)\
+   #                         .apply(remove_stopwords, 
+   #                                extra_words=extra_words, 
+   #                                exclude_words=exclude_words)
+    
+   # df['lemmatized'] = df[column].apply(basic_clean)\
+   #                         .apply(tokenize)\
+   #                         .apply(lemmatize)\
+   #                        .apply(remove_stopwords, 
+    #                               extra_words=extra_words, 
+    #                               exclude_words=exclude_words)
+    
+    #return df[['title', column,'clean', 'stemmed', 'lemmatized']]
+
+def prep_github_data(df, column = 'readme_contents', extra_words=[], exclude_words=[]):
+    '''
+    This function take in a df and the content (in string) for the column 
+    with an option to pass lists for additional stopwords (extra_words)
+    and an option to pass words to exclude from stopwords (exclude words)
+    returns a df with the  original text, cleaned (tokenized and stopwords removed),
+    stemmed text, lemmatized text.
+    '''
     df['clean'] = df[column].apply(basic_clean)\
                             .apply(tokenize)\
                             .apply(remove_stopwords, 
-                                   extra_words=extra_words, 
-                                   exclude_words=exclude_words)
+                                   extra_words=extra_words, exclude_words=exclude_words)
     
-    df['stemmed'] = df[column].apply(basic_clean)\
-                            .apply(tokenize)\
-                            .apply(stem)\
-                            .apply(remove_stopwords, 
-                                   extra_words=extra_words, 
-                                   exclude_words=exclude_words)
+    df['stemmed'] = df['clean'].apply(stem)
     
-    df['lemmatized'] = df[column].apply(basic_clean)\
-                            .apply(tokenize)\
-                            .apply(lemmatize)\
-                            .apply(remove_stopwords, 
-                                   extra_words=extra_words, 
-                                   exclude_words=exclude_words)
+    df['lemmatized'] = df['clean'].apply(lemmatize)
     
-    return df[[df, column,'clean', 'stemmed', 'lemmatized']]
+    return df
