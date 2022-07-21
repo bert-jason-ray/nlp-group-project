@@ -94,13 +94,6 @@ def remove_stopwords(string, extra_words = [], exclude_words = []):
     
     return string_without_stopwords
 
-def drop_nulls(df):
-    '''
-    This function takes in the repo dataframe
-    Drops any rows with nulls
-    '''
-    df = df.dropna()
-    return df
 
 #def prep_github_data(df, column, extra_words=[], exclude_words=[]):
     '''
@@ -139,6 +132,7 @@ def prep_github_data(df, column = 'readme_contents', extra_words=[], exclude_wor
     returns a df with the  original text, cleaned (tokenized and stopwords removed),
     stemmed text, lemmatized text.
     '''
+    df = df.dropna() #drops any null rows
     df['clean'] = df[column].apply(basic_clean)\
                             .apply(tokenize)\
                             .apply(remove_stopwords, 
