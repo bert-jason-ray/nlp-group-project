@@ -1,6 +1,8 @@
 import unicodedata
 import re
 import json
+import pandas as pd
+import numpy as np
 
 import nltk
 from nltk.tokenize.toktok import ToktokTokenizer
@@ -95,6 +97,34 @@ def remove_stopwords(string, extra_words = [], exclude_words = []):
     
     return string_without_stopwords
 
+def drop_data(df):
+    '''
+    This function takes in the repo dataframe
+    Drops any rows with nulls
+    '''
+    df = df.dropna()
+    #df['language'] = df['language'].value_counts().loc[lambda x : x>5]
+    #df = df.reset_index()
+    #df = df.replace([np.inf, -np.inf], np.nan, inplace=True)
+    #df = df.reindex(index=my_index)
+    return df
+
+def get_top_languages(df):
+    '''
+    This function takes in a dataframe and returns the top four
+    programming languages found in the data
+    '''
+    top_6_list = list(df.language.value_counts().head(6).index)
+    mask = df.language.apply(lambda x: x in top_6_list)
+    df = df[mask]
+    return df
+
+def clean_dataset(df):
+    assert isinstance(df, pd.DataFrame), "df needs to be a pd.DataFrame"
+    df.dropna(inplace=True)
+    indices_to_keep = ~df.isin([np.nan, np.inf, -np.inf]).any(1)
+    return df[indices_to_keep].astype(np.float64)
+
 def prep_github_data(df, column = 'readme_contents', extra_words=[], exclude_words=[]):
     '''
     This function take in a df and the content (in string) for the column 
@@ -103,7 +133,13 @@ def prep_github_data(df, column = 'readme_contents', extra_words=[], exclude_wor
     returns a df with the  original text, cleaned (tokenized and stopwords removed),
     stemmed text, lemmatized text.
     '''
-    df = df.dropna() #drops any null rows
+    
+    df = drop_data(df)
+
+    df = get_top_languages(df)
+
+    #df = clean_dataset(df)
+
     df['clean'] = df[column].apply(basic_clean)\
                             .apply(tokenize)\
                             .apply(remove_stopwords, 
@@ -112,7 +148,10 @@ def prep_github_data(df, column = 'readme_contents', extra_words=[], exclude_wor
     df['stemmed'] = df['clean'].apply(stem)
     
     df['lemmatized'] = df['clean'].apply(lemmatize)
-    
+
+    #df = df['language'].value_counts().loc[lambda x : x>5]
+    #df = df.reset_index()
+
     return df
 
 def split_github_data(df):
@@ -121,9 +160,11 @@ def split_github_data(df):
     Returns train, validate, and test dfs.
     '''
     train_validate, test = train_test_split(df, test_size=.2, 
-                                        random_state=123, 
-                                        stratify=df.language)
+                                        random_state=123, stratify=df.language)
     train, validate = train_test_split(train_validate, test_size=.3, 
-                                   random_state=123, 
-                                   stratify=train_validate.language)
+                                   random_state=123, stratify=train_validate.language)
+
+    print('train--->', train.shape)
+    print('validate--->', validate.shape)
+    print('test--->', test.shape)
     return train, validate, test
