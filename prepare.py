@@ -94,6 +94,14 @@ def remove_stopwords(string, extra_words = [], exclude_words = []):
     
     return string_without_stopwords
 
+def drop_nulls(df):
+    '''
+    This function takes in the repo dataframe
+    Drops any rows with nulls
+    '''
+    df = df.dropna()
+    return df
+
 #def prep_github_data(df, column, extra_words=[], exclude_words=[]):
     '''
     This function take in a df and the string name for a text column with 
@@ -102,10 +110,10 @@ def remove_stopwords(string, extra_words = [], exclude_words = []):
     lemmatized text, cleaned, tokenized, & lemmatized text with stopwords removed.
     '''
   #  df['clean'] = df[column].apply(basic_clean)\
-                            .apply(tokenize)\
-                            .apply(remove_stopwords, 
-                                   extra_words=extra_words, 
-                                   exclude_words=exclude_words)
+  #                          .apply(tokenize)\
+  #                         .apply(remove_stopwords, 
+  #                                 extra_words=extra_words, 
+  #                                 exclude_words=exclude_words)
     
    # df['stemmed'] = df[column].apply(basic_clean)\
    #                        .apply(tokenize)\
