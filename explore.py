@@ -60,7 +60,6 @@ def programing_language_distribution():
     ax.set_ylabel('Count / Frequency', size = 16)
     ax.set_title("Programming Language Distribution", size = 20)
     plt.show()
-programing_language_distribution()
 
 def all_top_words():
     all_freq = pd.Series(str(all_text).split()).value_counts()
@@ -77,6 +76,23 @@ def all_top_words():
     return top_30
 
 def word_distribution_vizual():
+    all_text = ' '.join(train.lemmatized)
+    javascript_text = ' '.join(train[train.language == 'JavaScript'].lemmatized)
+    python_text = ' '.join(train[train.language == 'Python'].lemmatized)
+    typescript_text = ' '.join(train[train.language == 'TypeScript'].lemmatized)
+    java_text = ' '.join(train[train.language == 'Java'].lemmatized)
+    go_text = ' '.join(train[train.language == 'Go'].lemmatized)
+    kotlin_text = ' '.join(train[train.language == 'Kotlin'].lemmatized)
+    all_freq = pd.Series(str(all_text).split()).value_counts()
+    javascript_freq = pd.Series(str(javascript_text).split()).value_counts()
+    python_freq = pd.Series(str(python_text).split()).value_counts()
+    typeScript_freq = pd.Series(str(typescript_text).split()).value_counts()
+    java_freq = pd.Series(str(java_text).split()).value_counts()
+    go_freq = pd.Series(str(go_text).split()).value_counts()
+    kotlin_freq = pd.Series(str(kotlin_text).split()).value_counts()
+    word_counts = pd.concat([all_freq, javascript_freq, python_freq, typeScript_freq,java_freq, go_freq, kotlin_freq], sort=True, axis=1)
+    word_counts.columns = ['all', 'JavaScript', 'python', 'typescript','java', 'go', 'kotlin']
+    word_counts = word_counts.fillna(0).apply(lambda s: s.astype(int))
     # Visualize word distribution
     word_counts.sort_values(by='all', ascending=False)[['all','JavaScript', 'python', 'typescript','java', 'go', 'kotlin']].head(9).plot.bar()
     plt.title('Words Used Most in README Files')
@@ -402,5 +418,3 @@ def min_words_in_read_mes():
     plt.xlabel('Repository (Index Number)')
     plt.ylabel('')
     plt.show()
-
-    sdfs
