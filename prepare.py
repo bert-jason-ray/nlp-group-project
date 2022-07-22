@@ -1,19 +1,9 @@
-import array
+# imports used
 import unicodedata
 import re
-import json
-import pandas as pd
-import numpy as np
-
 import nltk
-from nltk.tokenize.toktok import ToktokTokenizer
 from nltk.corpus import stopwords
 from sklearn.model_selection import train_test_split
-
-import pandas as pd
-import acquire
-from time import strftime
-
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -26,19 +16,7 @@ def basic_clean(string):
              .encode('ascii', 'ignore')\
              .decode('utf-8', 'ignore')
     string = re.sub(r'[^\w\s]', '', string).lower()
-    #string = re.sub(r'(\&#9;)', '', string)
-    #string = re.sub("&#9;","",string)
-    #string = re.sub(r"[-()\"#/@;:<>{}`+=~|.!?,]", "", string)
-    #string = re.sub('\W+','', string)
-    #string = re.sub(r'\s+', '', string)
     return string
-
-#def basic_clean(text):
-    #text = (unicodedata.normalize('NFKD', text.lower())
-            #.encode('ascii', 'ignore') # ascii to reduce noise
-            #.decode('utf-8', 'ignore') # decode using utf-8
-           #)
-    #return re.sub(r"[^a-z0-9\s]", '', text)
 
 
 def tokenize(string):
@@ -114,19 +92,15 @@ def remove_stopwords(string, extra_words = [], exclude_words = []):
 def drop_data(df):
     '''
     This function takes in the repo dataframe
-    Drops any rows with nulls
+    and drops any rows with nulls
     '''
     df = df.dropna()
-    #df['language'] = df['language'].value_counts().loc[lambda x : x>5]
-    #df = df.reset_index()
-    #df = df.replace([np.inf, -np.inf], np.nan, inplace=True)
-    #df = df.reindex(index=my_index)
     return df
 
 def get_top_languages(df):
     '''
-    This function takes in a dataframe and returns the top four
-    programming languages found in the data
+    This function takes in the repo dataframe and returns the 
+    top six programming languages found in the data
     '''
     top_6_list = list(df.language.value_counts().head(6).index)
     mask = df.language.apply(lambda x: x in top_6_list)
@@ -151,16 +125,19 @@ def prep_github_data(df, column = 'readme_contents', extra_words=[], exclude_wor
                             .apply(tokenize)\
                             .apply(remove_stopwords, 
                                    extra_words=extra_words, exclude_words=exclude_words)
-
+    
+    # removing from readme_contents, not sure why basic clean did not filter this out
     df['clean'] = df['clean'].str.replace("&#9;","")
+    
+    # removing the word 'bot' since it is already in the repo title
     df['clean'] = df['clean'].str.replace("bot","")
+    
+    #r removing the word 'musicbot' since it is already in the repo title
     df['clean'] = df['clean'].str.replace("musicbot","")
 
     df['stemmed'] = df['clean'].apply(stem)
     
     df['lemmatized'] = df['clean'].apply(lemmatize)
-
-    
 
     return df
 
