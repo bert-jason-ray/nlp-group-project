@@ -148,11 +148,11 @@ def split_github_data(df):
     '''
     train, test = train_test_split(df, test_size=.2, 
                                         random_state=123, stratify=df.language)
-    #train, validate = train_test_split(train_validate, test_size=.3, 
-                                   #random_state=123, stratify=train_validate.language)
+    train, validate = train_test_split(train_validate, test_size=.3, 
+                                   random_state=123, stratify=train_validate.language)
 
     print('train--->', train.shape)
-    #print('validate--->', validate.shape)
+    print('validate--->', validate.shape)
     print('test--->', test.shape)
     return train, test
 
