@@ -95,6 +95,7 @@ def drop_data(df):
     and drops any rows with nulls
     '''
     df = df.dropna()
+    
     return df
 
 def get_top_languages(df):
