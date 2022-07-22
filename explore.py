@@ -33,7 +33,6 @@ import warnings
 warnings.filter="ignore"
 
 from bs4 import BeautifulSoup
-from mergedeep import merge
 
 
 df = acquire.get_github_data()
