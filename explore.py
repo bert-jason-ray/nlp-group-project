@@ -46,8 +46,14 @@ def programing_language_distribution():
     ax.set_title("Programming Language Distribution", size = 20)
     plt.show()
 programing_language_distribution()
+df = acquire.get_github_data()
+df = prepare.prep_github_data(df,column = 'readme_contents', extra_words=[], exclude_words=['musicbot'])
+df = df.drop(columns = ['readme_contents', 'stemmed','clean'])
+df = df.dropna()
+train, test = prepare.split_github_data(df)
 
 # Set up word counts dataframe
+train = train
 all_text = ' '.join(train.lemmatized)
 javascript_text = ' '.join(train[train.language == 'JavaScript'].lemmatized)
 python_text = ' '.join(train[train.language == 'Python'].lemmatized)
