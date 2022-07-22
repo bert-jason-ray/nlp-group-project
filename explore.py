@@ -39,7 +39,7 @@ df = acquire.get_github_data()
 df = prepare.prep_github_data(df,column = 'readme_contents', extra_words=[], exclude_words=['musicbot'])
 df = df.drop(columns = ['readme_contents', 'stemmed','clean'])
 df = df.dropna()
-train, test = prepare.split_github_data(df)
+train, validate, test = prepare.split_github_data(df)
 # Set up word counts dataframe
 all_text = ' '.join(train.lemmatized)
 javascript_text = ' '.join(train[train.language == 'JavaScript'].lemmatized)
@@ -201,8 +201,7 @@ def python_trigram_barplot():
     plt.xlabel('words')
     plt.ylabel('')
     plt.show()
-python_trigram_wordcloud()
-python_trigram_barplot()
+
 
 def javascript_bigram_wordcloud():
     javascript_D = pd.Series(str(javascript_text).split())
@@ -316,6 +315,7 @@ def java_bigram_wordcloud():
     plt.imshow(img)
     plt.axis('off')
     plt.show()
+
 def java_bigram_barplot():
     java_D = pd.Series(str(java_text).split())
     top_20_java_bigrams = (pd.Series(nltk.ngrams(java_D, 2))
@@ -340,6 +340,7 @@ def java_trigram_wordcloud():
     plt.imshow(img)
     plt.axis('off')
     plt.show()
+
 def java_trigram_barplot():
     java_D = pd.Series(str(java_text).split())
     top_20_java_trigrams = (pd.Series(nltk.ngrams(java_D, 3))
@@ -364,6 +365,7 @@ def go_bigram_wordcloud():
     plt.imshow(img)
     plt.axis('off')
     plt.show()
+
 def go_bigram_barplot():
     go_D = pd.Series(str(go_text).split())
     top_20_go_bigrams = (pd.Series(nltk.ngrams(go_D, 2))
@@ -388,6 +390,7 @@ def go_trigram_wordcloud():
     plt.imshow(img)
     plt.axis('off')
     plt.show()
+
 def go_trigram_barplot():
     go_D = pd.Series(str(go_text).split())
     top_20_go_trigrams = (pd.Series(nltk.ngrams(go_D, 3))
