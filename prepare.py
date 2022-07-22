@@ -150,7 +150,8 @@ def prep_github_data(df, column = 'readme_contents', extra_words=[], exclude_wor
                             .apply(tokenize)\
                             .apply(remove_stopwords, 
                                    extra_words=extra_words, exclude_words=exclude_words)
-    df['clean'] = df['clean'].str.replace("&#9;","")
+
+    df['clean'] = df['clean'].str.replace("&#9;","") & df['clean'].str.replace("bot","") & df['clean'].str.replace("musicbot","")
 
     df['stemmed'] = df['clean'].apply(stem)
     
