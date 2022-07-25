@@ -13,46 +13,41 @@ by web-scrapping their README file contents.
 #### Project Objectives
 > - Build a model that can predict what programming language a repository will be.
 > - Produce a well-documented jupyter notebook that contains our analysis.
-> - 
+> - Generate a Google-Slide presentation suitable for a general audience.
 
 #### Goals
-> - Answer questions for CodeUp staff by analyzing data from curriculum_logs.
-> - Prepare a single slide that summarizes most important points which will be incorporated into an existing presentation.
+> - Build a dataset from a list of 100+ GitHub repositories we have decided to scrape.
+> - Generate the list of repositories programmaticly using web scraping techniques.
+> - Explore and visualize the natural language data we have acquired.
+> - Transform the documents into a form that can be used in a machine learning model.
+> - Use the programming language of the repository as the label to predict.
+> - Fit several different models.
+> - Use several different representations of the text.
+> - Build a function that takes in the README file and tries to predict the programming language.
 > - Document process well enough to be presented or read like a report.
 
 #### Audience
-> - CodeUp Board Members
-> - CodeUp Students!
+> - General audience without an understanding of the topic.
 
 #### Project Deliverables
-> - A final report notebook 
-> - All necessary modules to make project reproducible
-> - An email before the due date which includes:
->    - answering all questions (details are clearly communicated in email for leader to convey/understand)
->    - a link to final notebook
->    - an executive summary google slide in form to present
+> - A well-documented Jupyter notebook that contains our analysis, and direct link to that notebook in github.
+> - Slides suitable for a general audience that summarizes our findings. 
+> - A well-labeled visualization in our slides, link to the slides. 
+> - A five minute presentation.
 
 
 #### Data Dictionary
-- Note: Includes only those features selected for full EDA and Modeling:
 
-|Target|Datatype|Definition|
-|:-------|:--------|:----------|
-| ? | 2820 non-null: object | Earthlike or Not-Earthlike gravity measurement, based on planet's radius |
+Data columns (total 6 columns):
+ #   Column           Non-Null Count  Dtype 
+---  ------           --------------  ----- 
+ 0   repo             160 non-null    object
+ 1   language         160 non-null    object
+ 2   readme_contents  160 non-null    object
+ 3   clean            160 non-null    object
+ 4   stemmed          160 non-null    object
+ 5   lemmatized       160 non-null    object
 
-|Feature|Datatype|Definition|
-|:-------|:--------|:----------|
-| ?      | 2820 non-null: int64 | number of planets in system |
-
-
-
-#### Initial Hypotheses
-
-> - **Hypothesis 1 -**
-> - H1
-
-> - **Hypothesis 2 -** 
-> - H2 (additional if needed)
 
 <hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
 
