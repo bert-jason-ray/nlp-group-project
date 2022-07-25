@@ -65,8 +65,9 @@ ___
 
 ### Executive Summary - Conclusions & Next Steps
 
-> - Conclusions:  
-> - Recommendations: 
+> - Conclusion:  This data set had over 150 repositories. We fit several different models and found that the KNN model was the most accurate. It predicted the main programming language with an accuracy of 56.25% on lemmatized data. We noticed that it is not very accurate when predicting TypeScript but this is because there were only two readmes with this programming language on our test data. In       the train data set there were only six of these we definitely need to increase our acquire data but overall we were pretty accurate in predicting JavaScript or Python as the programming language.
+
+> - Recommendations: More Github data is required. Scrape more data for a more accurate model.
 
 <hr style="border-top: 10px groove red; margin-top: 1px; margin-bottom: 1px"></hr>
 
