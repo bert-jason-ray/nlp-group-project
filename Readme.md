@@ -1,6 +1,8 @@
 ## Natural Language Processing Group Project
-
 <hr style="border-top: 10px groove red; margin-top: 1px; margin-bottom: 1px"></hr>
+
+> Google slide for general audience:
+> Link to final notebook:
 
 ### Project Summary
 <hr style="border-top: 10px groove red; margin-top: 1px; margin-bottom: 1px"></hr>
@@ -106,9 +108,13 @@ ___
 ___
 
 ##### ➡️ Planning ➡️ Acquisition ➡️ Preparation ➡️ Exploration 🛑 Modeling
+
 > - Discovered Baseline Accuracy of 43%
-> - Created Models on Lemmatized data.
->   - 
+> - Created Models on Lemmatized data:
+>   - Logistic Regression
+>   - Decision Tree Classifier
+>   - Random Forest Classifier
+>   - K-Nearest Neighbors Classifier
 ___
 
 ##### ➡️ Planning ➡️ Acquisition ➡️ Preparation ➡️ Exploration ➡️ Modeling 🛑 Delivery
@@ -122,7 +128,6 @@ ___
 
 You will need all the necessary files listed below to run my final project notebook. 
 - [x] Read this README.md
-- [ ] Access to CodeUp MySql server
-- [ ] Download [[wrangle functions]]
+- [ ] Download prepare functions
 - [ ] Scrap notebooks
 - [ ] Run the final report
