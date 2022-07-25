@@ -1,8 +1,7 @@
 ## Natural Language Processing Group Project
-<hr style="border-top: 10px groove red; margin-top: 1px; margin-bottom: 1px"></hr>
 
-> Google slide for general audience:
-> Link to final notebook:
+>> - 📰 Google slide for general audience:
+>> - 📗 Link to final notebook:
 
 ### Project Summary
 <hr style="border-top: 10px groove red; margin-top: 1px; margin-bottom: 1px"></hr>
