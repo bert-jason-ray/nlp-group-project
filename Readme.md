@@ -38,15 +38,17 @@ by web-scrapping their README file contents.
 
 #### Data Dictionary
 
-Data columns (total 6 columns):
- #   Column           Non-Null Count  Dtype 
----  ------           --------------  ----- 
- 0   repo             160 non-null    object
- 1   language         160 non-null    object
- 2   readme_contents  160 non-null    object
- 3   clean            160 non-null    object
- 4   stemmed          160 non-null    object
- 5   lemmatized       160 non-null    object
+
+| Column            | Non-Null Count Datatype         | Definition                                              |
+|-------------------|---------------------------------|---------------------------------------------------------|
+| repo              | 160 non-null: object            | The title of the repository                             |
+| language          | 160 non-null: object            | The programming language used in the repository         |
+| readme_contents   | 160 non-null: object            | The original README contents of the repository          |
+| clean             | 160 non-null: object            | The cleaned version of the README                       |
+| stemmed           | 160 non-null: object            | The cleaned, stemmed version of the readme              |
+| lemmatized        | 160 non-null: object            | The cleaned, lemmatized version of the readme           |
+| label             | 160 non-null: object            | The programming language label; the target variable     |
+
 
 
 <hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
