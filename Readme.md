@@ -1,6 +1,7 @@
-## Natural Language Processing Group Project
+# Natural Language Processing Group Project
 
-<hr style="border-top: 10px groove red; margin-top: 1px; margin-bottom: 1px"></hr>
+> - 📰 **Link to Google slide for general audience click here: [Slide](https://docs.google.com/presentation/d/11sdeznu67SOP-amt2v3Uv2tNwwb1f7UcrvsqDZrYLCc/edit?usp=sharing)**
+> - 📗 **Link to final notebook click here: [MVP](https://github.com/bert-jason-ray/nlp-group-project/blob/main/group_final_notebook.ipynb)**
 
 ### Project Summary
 <hr style="border-top: 10px groove red; margin-top: 1px; margin-bottom: 1px"></hr>
@@ -27,6 +28,14 @@ ___
 > - Use several different representations of the text.
 > - Build a function that takes in the README file and tries to predict the programming language.
 > - Document process well enough to be presented or read like a report.
+___
+
+#### Questions
+
+> - What are the most common words in READMEs?
+> - Does the length of the README vary by programming language?
+> - Do different programming languages use a different number of unique words?
+> - Are there any words that uniquely identify a programming language?
 ___
 
 #### Audience
@@ -56,8 +65,6 @@ ___
 
 ### Executive Summary - Conclusions & Next Steps
 
-> - Question: 
-> - Actions: 
 > - Conclusions:  
 > - Recommendations: 
 
@@ -66,37 +73,47 @@ ___
 ### Pipeline Stages Breakdown
 
 ##### 🛑 Planning
+> - [x] Scroll through links of GitHub's trending repositories, most forked repositores, and most starred repositories and vote on a topic.
 > - [x] Create README.md with data dictionary, project objectives and goals.
-> - [x] ...
 > - [x] ...
 ___
 
 ##### ➡️ Planning 🛑 Acquisition
-> - Store functions that are needed to acquire data from the database server; make sure the acquire.py module contains the necessary imports for anyone with database access to run the code.
-> - The final function will return a pandas DataFrame.
-> - Import the acquire function from the acquire.py module and use it to acquire the data in the final notebook.
-> - Complete some initial data summarization (`.info()`, `.describe()`, `.value_counts()`, etc.).
-> - Plot distributions of individual variables.
+> - Create a web scraper that will summon two seperate data frames at a time named `df1` and `df2`.
+> - Joined dataframes them using `append()` function.
+> - Pulled the list of queries using the `.full_name` collumn and grab the `.to_list()` function.
+> - Added list to our [`Acquire.py`](https://github.com/bert-jason-ray/nlp-group-project/blob/main/acquire.py) and define our list of queries as `REPOS`.
 ___
 
 ##### ➡️ Plannning ➡️ Acquisition 🛑 Preparation
-> - Store functions needed to wrangle the data; make sure the module contains the necessary imports to run the code. The final functions (wrangle.py) should do the following:
-    - Since there is no modeling to be done for this project, there is no need to split the data into train/validate/test.
-    - Handle any missing values.
-    - Handle erroneous data and/or outliers that need addressing.
-    - Encode variables as needed.
-    - Create any new features, if made for this project.
-> - Import the prepare functions from the wrangle.py module and use it to prepare the data in the final notebook.
+> - Store functions needed to prepare the data; make sure the module contains the necessary imports to run the code. The final functions (prepare.py) should do the following:
+>   - Convert all characters to lowercase.
+>   - Normalize any unicode characters.
+>   - Tokenized data.
+>   - Create stemmed and lemmatized versions of the cleaned data.
+>   - Handle any missing values and drop rows with nulls.
+>   - Return the top six programming languages found in the repositories.
+>   - Handle erroneous data and/or outliers that need addressing.
+>   - String replace the words 'bot' and 'musicbot' since they are already present in the repo title.
+>   - Create any new features, if made for this project.
+>   - Split data into train, validate, and test sets.
+>   - Import the prepare functions from the prepare.py module and use it to prepare the data in the final notebook.
 ___
 
 ##### ➡️ Planning ➡️ Acquisition ➡️ Preparation 🛑 Exploration
-> - Answer key questions, our hypotheses, and figure out the features that can be used in answering key questions.
-> - Create visualizations that work toward discovering variable relationships (independent with independent and independent with dependent). The goal is to identify anomalies in curriculum logs, identify any data integrity issues, and understand 'how the data works'. If there appears to be some sort of interaction or correlation, assume there is no causal relationship and brainstorm (and document) ideas on reasons there could be correlation.
+> - Answer key questions and figure out features that can be used in answering key questions.
+> - Create visualizations that work toward discovering variable relationships.
 > - Summarize conclusions, provide clear answers to specific questions, and summarize any takeaways/action plan from the work above.
 ___
 
 ##### ➡️ Planning ➡️ Acquisition ➡️ Preparation ➡️ Exploration 🛑 Modeling
-> - This project does not contain any modeling.
+
+> - Discovered Baseline Accuracy of 43%
+> - Created Models on Lemmatized data:
+>   - Logistic Regression
+>   - Decision Tree Classifier
+>   - Random Forest Classifier
+>   - K-Nearest Neighbors Classifier
 ___
 
 ##### ➡️ Planning ➡️ Acquisition ➡️ Preparation ➡️ Exploration ➡️ Modeling 🛑 Delivery
@@ -110,7 +127,6 @@ ___
 
 You will need all the necessary files listed below to run my final project notebook. 
 - [x] Read this README.md
-- [ ] Access to CodeUp MySql server
-- [ ] Download [[wrangle functions]]
+- [ ] Download prepare functions
 - [ ] Scrap notebooks
 - [ ] Run the final report
