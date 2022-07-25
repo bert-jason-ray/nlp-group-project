@@ -122,7 +122,7 @@ def all_words_bigram_wordcloud():
     data = {k[0] + ' ' + k[1]: v for k, v in top_20_all_words_bigrams.to_dict().items()}
     img = WordCloud(background_color='white', width=800, height=400).generate_from_frequencies(data)
     plt.figure(figsize=(8, 4))
-    plt.title('Top 2 Word clusters Used')
+    plt.title('Top 2 Word clusters Used on all languages')
     plt.imshow(img)
     plt.axis('off')
     plt.show()
@@ -135,7 +135,7 @@ def all_words_bigram_barplot():
                           .head(20))
     # Top 3 Words Used in README(s)
     top_20_all_words_bigrams.plot.bar()
-    plt.title('Top 2 Word clusters Used')
+    plt.title('Top 2 Word clusters Used on all languages')
     plt.xlabel('words')
     plt.ylabel('')
     plt.show()
@@ -149,7 +149,7 @@ def all_words_trigram_wordcloud():
     data = {k[0] + ' ' + k[1]: v for k, v in top_20_all_words_trigrams.to_dict().items()}
     img = WordCloud(background_color='white', width=800, height=400).generate_from_frequencies(data)
     plt.figure(figsize=(8, 4))
-    plt.title('Top 3 Word clusters Used')
+    plt.title('Top 3 Word clusters Used on all languages')
     plt.imshow(img)
     plt.axis('off')
     plt.show()
@@ -162,7 +162,7 @@ def all_words_trigram_barplot():
                           .head(20))
     # Top 3 Words Used in README(s)
     top_20_all_words_trigrams.plot.bar()
-    plt.title('Top 3 Word clusters Used')
+    plt.title('Top 3 Word clusters Used on all languages')
     plt.xlabel('words')
     plt.ylabel('')
     plt.show()
@@ -176,7 +176,7 @@ def python_bigram_wordcloud():
     data = {k[0] + ' ' + k[1]: v for k, v in top_20_python_bigrams.to_dict().items()}
     img = WordCloud(background_color='white', width=800, height=400).generate_from_frequencies(data)
     plt.figure(figsize=(8, 4))
-    plt.title('Top 2 Word clusters Used')
+    plt.title('Top 2 Word clusters Used on Python')
     plt.imshow(img)
     plt.axis('off')
     plt.show()
@@ -189,7 +189,7 @@ def python_bigram_barplot():
                           .head(20))
     # Top 3 Words Used in README(s)
     top_20_python_bigrams.plot.bar()
-    plt.title('Top 2 Word clusters Used')
+    plt.title('Top 2 Word clusters Used on Python')
     plt.xlabel('words')
     plt.ylabel('')
     plt.show()
@@ -203,7 +203,7 @@ def python_trigram_wordcloud():
     data = {k[0] + ' ' + k[1]: v for k, v in top_20_python_trigrams.to_dict().items()}
     img = WordCloud(background_color='white', width=800, height=400).generate_from_frequencies(data)
     plt.figure(figsize=(8, 4))
-    plt.title('Top 3 Word clusters Used')
+    plt.title('Top 3 Word clusters Used on Python')
     plt.imshow(img)
     plt.axis('off')
     plt.show()
@@ -217,7 +217,7 @@ def python_trigram_barplot():
                           .head(20))
     # Top 3 Words Used in README(s)
     top_20_python_trigrams.plot.bar()
-    plt.title('Top 3 Word clusters Used')
+    plt.title('Top 3 Word clusters Used on Python')
     plt.xlabel('words')
     plt.ylabel('')
     plt.show()
@@ -232,7 +232,7 @@ def javascript_bigram_wordcloud():
     data = {k[0] + ' ' + k[1]: v for k, v in top_20_javascript_bigrams.to_dict().items()}
     img = WordCloud(background_color='white', width=800, height=400).generate_from_frequencies(data)
     plt.figure(figsize=(8, 4))
-    plt.title('Top 2 Word clusters Used')
+    plt.title('Top 2 Word clusters Used JavaScript')
     plt.imshow(img)
     plt.axis('off')
     plt.show()
@@ -245,7 +245,7 @@ def javascript_bigram_barplot():
                           .head(20))
     # Top 2 Words Used in README(s)
     top_20_javascript_bigrams.plot.bar()
-    plt.title('Top 2 Word clusters Used')
+    plt.title('Top 2 Word clusters Used on Javascript')
     plt.xlabel('words')
     plt.ylabel('')
     plt.show()
@@ -259,7 +259,7 @@ def javascript_trigram_wordcloud():
     data = {k[0] + ' ' + k[1]: v for k, v in top_20_javascript_trigrams.to_dict().items()}
     img = WordCloud(background_color='white', width=800, height=400).generate_from_frequencies(data)
     plt.figure(figsize=(8, 4))
-    plt.title('Top 3 Word clusters Used')
+    plt.title('Top 3 Word clusters Used on Javascript')
     plt.imshow(img)
     plt.axis('off')
     plt.show()
@@ -272,7 +272,7 @@ def javascript_trigram_barplot():
                           .head(20))
     # Top 3 Words Used in README(s)
     top_20_javascript_trigrams.plot.bar()
-    plt.title('Top 3 Word clusters Used')
+    plt.title('Top 3 Word clusters Used JavaScript')
     plt.xlabel('words')
     plt.ylabel('')
     plt.show()
@@ -286,7 +286,7 @@ def typescript_bigram_wordcloud():
     data = {k[0] + ' ' + k[1]: v for k, v in top_20_typescript_bigrams.to_dict().items()}
     img = WordCloud(background_color='white', width=800, height=400).generate_from_frequencies(data)
     plt.figure(figsize=(8, 4))
-    plt.title('Top 2 Word clusters Used')
+    plt.title('Top 2 Word clusters Used on TypeScrypt')
     plt.imshow(img)
     plt.axis('off')
     plt.show()
@@ -299,7 +299,7 @@ def typescript_bigram_barplot():
                           .head(20))
     # Top 3 Words Used in README(s)
     top_20_typescript_bigrams.plot.bar()
-    plt.title('Top 2 Word clusters Used')
+    plt.title('Top 2 Word clusters Used on TypeScript')
     plt.xlabel('words')
     plt.ylabel('')
     plt.show()
@@ -313,12 +313,12 @@ def typescript_trigram_wordcloud():
     data = {k[0] + ' ' + k[1]: v for k, v in top_20_typescript_trigrams.to_dict().items()}
     img = WordCloud(background_color='white', width=800, height=400).generate_from_frequencies(data)
     plt.figure(figsize=(8, 4))
-    plt.title('Top 3 Word clusters Used')
+    plt.title('Top 3 Word clusters Used on TypeScript')
     plt.imshow(img)
     plt.axis('off')
     plt.show()
 
-def typewscript_trigram_barplot():
+def typescript_trigram_barplot():
     """ allows us to see trigram(top 3 words used) barplors, shows us the more common used word groupings as larger bars"""
     typescript_D = pd.Series(str(typescript_text).split())
     top_20_typescript_trigrams = (pd.Series(nltk.ngrams(typescript_D, 3))
@@ -326,7 +326,7 @@ def typewscript_trigram_barplot():
                           .head(20))
     # Top 3 Words Used in README(s)
     top_20_typescript_trigrams.plot.bar()
-    plt.title('Top 3 Word clusters Used')
+    plt.title('Top 3 Word clusters Used on Typescript')
     plt.xlabel('words')
     plt.ylabel('')
     plt.show()
@@ -340,7 +340,7 @@ def java_bigram_wordcloud():
     data = {k[0] + ' ' + k[1]: v for k, v in top_20_java_bigrams.to_dict().items()}
     img = WordCloud(background_color='white', width=800, height=400).generate_from_frequencies(data)
     plt.figure(figsize=(8, 4))
-    plt.title('Top 2 Word clusters Used')
+    plt.title('Top 2 Word clusters Used on Java')
     plt.imshow(img)
     plt.axis('off')
     plt.show()
@@ -353,7 +353,7 @@ def java_bigram_barplot():
                           .head(20))
     # Top 2 Words Used in README(s)
     top_20_java_bigrams.plot.bar()
-    plt.title('Top 2 Word clusters Used')
+    plt.title('Top 2 Word clusters Used on Java')
     plt.xlabel('words')
     plt.ylabel('')
     plt.show()
@@ -367,7 +367,7 @@ def java_trigram_wordcloud():
     data = {k[0] + ' ' + k[1]: v for k, v in top_20_java_trigrams.to_dict().items()}
     img = WordCloud(background_color='white', width=800, height=400).generate_from_frequencies(data)
     plt.figure(figsize=(8, 4))
-    plt.title('Top 3 Word clusters Used')
+    plt.title('Top 3 Word clusters Used on Java')
     plt.imshow(img)
     plt.axis('off')
     plt.show()
@@ -380,7 +380,7 @@ def java_trigram_barplot():
                                   .head(20))
     # Top 3 Words Used in README(s)
     top_20_java_trigrams.plot.bar()
-    plt.title('Top 3 Word clusters Used')
+    plt.title('Top 3 Word clusters Used on Java')
     plt.xlabel('words')
     plt.ylabel('')
     plt.show()
@@ -394,7 +394,7 @@ def go_bigram_wordcloud():
     data = {k[0] + ' ' + k[1]: v for k, v in top_20_go_bigrams.to_dict().items()}
     img = WordCloud(background_color='white', width=800, height=400).generate_from_frequencies(data)
     plt.figure(figsize=(8, 4))
-    plt.title('Top 2 Word clusters Used')
+    plt.title('Top 2 Word clusters Used on Go')
     plt.imshow(img)
     plt.axis('off')
     plt.show()
@@ -407,7 +407,7 @@ def go_bigram_barplot():
                           .head(20))
     # Top 2 Words Used in README(s)
     top_20_go_bigrams.plot.bar()
-    plt.title('Top 2 Word clusters Used')
+    plt.title('Top 2 Word clusters Used on Go')
     plt.xlabel('words')
     plt.ylabel('')
     plt.show()
@@ -421,7 +421,7 @@ def go_trigram_wordcloud():
     data = {k[0] + ' ' + k[1]: v for k, v in top_20_go_trigrams.to_dict().items()}
     img = WordCloud(background_color='white', width=800, height=400).generate_from_frequencies(data)
     plt.figure(figsize=(8, 4))
-    plt.title('Top 3 Word clusters Used')
+    plt.title('Top 3 Word clusters Used on Go')
     plt.imshow(img)
     plt.axis('off')
     plt.show()
@@ -434,7 +434,7 @@ def go_trigram_barplot():
                           .head(20))
     # Top 3 Words Used in README(s)
     top_20_go_trigrams.plot.bar()
-    plt.title('Top 3 Word clusters Used')
+    plt.title('Top 3 Word clusters Used on Go')
     plt.xlabel('words')
     plt.ylabel('')
     plt.show()
@@ -459,3 +459,16 @@ def min_words_in_read_mes():
     plt.xlabel('Repository (Index Number)')
     plt.ylabel('')
     plt.show()
+
+def read_me_lengths():
+    """ This fucntion allows us to vizulize the average read me lengths by word counts from largest to smallest based on coding languages """
+    # Get the length of text in each README
+    df['text_length'] = df.lemmatized.apply(len)
+    #plots the mean of Readme lengths by programming language
+
+    df.groupby(['language']).text_length.mean().sort_values(ascending = False).plot.bar()
+
+    #inputs the chart title
+    plt.title("Mean of Readme Lengths by Programming Language")
+    #sets the size of the chart
+    plt.rcParams["figure.figsize"] = (10, 5)
