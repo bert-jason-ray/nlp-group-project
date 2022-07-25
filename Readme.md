@@ -8,12 +8,14 @@
 For this project, our team utlizes NLP (Natural Language Processing) a form of programming and machine learning techniques, to help understand and make use
 of large amounts of text data. In this case, we have selected 100+ repositories from GitHub with the word 'MusicBot' in the title as of July 25, 2022. Music Bots 
 allow users to listen to music while they play games, work, or chat with friends online. We attempt to predict the programming language of each of these repositories 
-by web-scrapping their README file contents. 
+by web-scrapping their README file contents.
+___ 
 
 #### Project Objectives
 > - Build a model that can predict what programming language a repository will be.
 > - Produce a well-documented jupyter notebook that contains our analysis.
 > - Generate a Google-Slide presentation suitable for a general audience.
+___
 
 #### Goals
 > - Build a dataset from a list of 100+ GitHub repositories we have decided to scrape.
@@ -25,19 +27,20 @@ by web-scrapping their README file contents.
 > - Use several different representations of the text.
 > - Build a function that takes in the README file and tries to predict the programming language.
 > - Document process well enough to be presented or read like a report.
+___
 
 #### Audience
 > - General audience without an understanding of the topic.
+___
 
 #### Project Deliverables
 > - A well-documented Jupyter notebook that contains our analysis, and direct link to that notebook in github.
 > - Slides suitable for a general audience that summarizes our findings. 
 > - A well-labeled visualization in our slides, link to the slides. 
 > - A five minute presentation.
-
+___
 
 #### Data Dictionary
-
 
 | Column            | Non-Null Count Datatype         | Definition                                              |
 |-------------------|---------------------------------|---------------------------------------------------------|
@@ -52,7 +55,6 @@ by web-scrapping their README file contents.
 <hr style="border-top: 10px groove red; margin-top: 1px; margin-bottom: 1px"></hr>
 
 ### Executive Summary - Conclusions & Next Steps
-<hr style="border-top: 10px groove red; margin-top: 1px; margin-bottom: 1px"></hr>
 
 > - Question: 
 > - Actions: 
@@ -63,12 +65,11 @@ by web-scrapping their README file contents.
 
 ### Pipeline Stages Breakdown
 
-<hr style="border-top: 10px groove red; margin-top: 1px; margin-bottom: 1px"></hr>
-
 ##### 🛑 Planning
 - [x] Create README.md with data dictionary, project objectives and goals.
 - [x] ...
 - [x] ...
+___
 
 ##### ➡️ Planning 🛑 Acquisition
 > - Store functions that are needed to acquire data from the database server; make sure the acquire.py module contains the necessary imports for anyone with database access to run the code.
@@ -92,6 +93,7 @@ ___
 > - Answer key questions, our hypotheses, and figure out the features that can be used in answering key questions.
 > - Create visualizations that work toward discovering variable relationships (independent with independent and independent with dependent). The goal is to identify anomalies in curriculum logs, identify any data integrity issues, and understand 'how the data works'. If there appears to be some sort of interaction or correlation, assume there is no causal relationship and brainstorm (and document) ideas on reasons there could be correlation.
 > - Summarize conclusions, provide clear answers to specific questions, and summarize any takeaways/action plan from the work above.
+___
 
 ##### ➡️ Planning ➡️ Acquisition ➡️ Preparation ➡️ Exploration 🛑 Modeling
 > - This project does not contain any modeling.
@@ -105,8 +107,6 @@ ___
 <hr style="border-top: 10px groove red; margin-top: 1px; margin-bottom: 1px"></hr>
 
 ### Reproducing Our Project
-
-<hr style="border-top: 10px groove red; margin-top: 1px; margin-bottom: 1px"></hr>
 
 You will need all the necessary files listed below to run my final project notebook. 
 - [x] Read this README.md
