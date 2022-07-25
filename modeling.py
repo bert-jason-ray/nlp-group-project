@@ -5,7 +5,7 @@ import prepare
 
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics import classification_report, confusion_matrix, recall_score, plot_confusion_matrix
+from sklearn.metrics import classification_report, confusion_matrix, recall_score, plot_confusion_matrix, accuracy_score
 
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -46,15 +46,42 @@ def test_model(X_train, y_train, X_validate, y_validate, model, model_name, scor
     
     validate_score = this_model.score(X_validate, y_validate)
     
-    test_score = this_model.score(X_test, y_test)
+    #test_score = this_model.score(X_test, y_test)
     
     model_dict = {'model_name': model_name, 
                   'train_score':  round(train_score*100,2), 
                   'validate_score': round(validate_score*100,2),
-                  'test_score': round(test_score*100,2)}
+                  }#'test_score': round(test_score*100,2)}
     score_df = score_df.append(model_dict, ignore_index = True)
     
     return score_df
+
+def final_test_model(X_test, y_test, model, model_name, test_score_df):
+    '''
+    Function takes in X and y train
+    X and y validate (or test) 
+    A model with it's hyper parameters
+    And a df to store the scores 
+
+    - Set up an empty dataframe with score_df first
+    - score_df = pd.DataFrame(columns = ['model_name', 'train_score', 'validate_score', 'test_score'])
+    '''
+    this_model = model
+
+    this_model.fit(X_test, y_test)
+
+    # Check with Validate also added test
+
+    test_score = this_model.score(X_test, y_test)
+
+    
+    #test_score = this_model.score(X_test, y_test)
+    
+    model_dict = {'model_name': model_name, 
+                  'test_score': round(test_score*100,2)}
+    test_score_df = test_score_df.append(model_dict, ignore_index = True)
+    
+    return test_score_df
 
 def print_metrics(model, X, y, pred, language_names, set_name = 'This Set'):
     '''
@@ -101,7 +128,7 @@ def make_models_and_print_metrics(model, model_name, X_train, y_train, X_validat
     val_pred = model.predict(X_validate)
     
     #see metrics for train
-    model.print_metrics(model, X_train, y_train, train_pred, language_names, set_name='Train')
+    print_metrics(model, X_train, y_train, train_pred, language_names, set_name='Train')
     #print metrics for validate
-    model.print_metrics(model, X_validate, y_validate, val_pred, language_names, set_name='Validate')
+    print_metrics(model, X_validate, y_validate, val_pred, language_names, set_name='Validate')
     print('-------------------------------------------------------------------\n')
