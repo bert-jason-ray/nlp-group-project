@@ -4,7 +4,7 @@ please go to https://github.com/bert-jason-ray/nlp-group-project/blob/main/contr
 
 """
 
-""" The following imports are placed here as well to allow the data to run correclty on the coding platform"""
+""" The following imports are placed here as well to allow the data to run correclty on the coding platform."""
 import os
 import json
 from typing import Dict, List, Optional, Union, cast
