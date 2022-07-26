@@ -13,7 +13,7 @@ ___
 <hr style="border-top: 10px groove red; margin-top: 1px; margin-bottom: 1px"></hr>
 
 For this project, our team utlizes NLP (Natural Language Processing) a form of programming and machine learning techniques, to help understand and make use
-of large amounts of text data. In this case, we have selected 100+ repositories from GitHub with the word 'MusicBot' in the title as of July 25, 2022. Music Bots 
+of large amounts of text data. In this case, we have selected 100+ repositories from GitHub with the word 'MusicBot' in the title as of July 21, 2022. Music Bots 
 allow users to listen to music while they play games, work, or chat with friends online. We attempt to predict the programming language of each of these repositories 
 by web-scrapping their README file contents.
 ___ 
