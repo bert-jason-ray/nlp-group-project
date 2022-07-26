@@ -307,7 +307,7 @@ if __name__ == "__main__":
     json.dump(data, open("data.json", "w"), indent=1)
 
 def get_github_data():
-    """ importing data from github music bot repositories"""
+    """ importing data from github music bot repositories."""
     filename = "musicbot_data.csv"
 
     if os.path.isfile(filename):
