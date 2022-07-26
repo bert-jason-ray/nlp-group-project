@@ -1,4 +1,8 @@
 # Natural Language Processing Group Project
+> Contributors:
+> Eriberto Contreras
+> Jason Turner
+> Ray Cerna
 
 > - 📰 **Link to Google slide for general audience click here: [Slide](https://www.canva.com/design/DAFHd4qLmko/zgSiqq_c_Y4hQgINUzrI8g/edit?utm_content=DA[…]m_campaign=designshare&utm_medium=link2&utm_source=sharebutton)**
 > - 📗 **Link to final notebook click here: [MVP](https://github.com/bert-jason-ray/nlp-group-project/blob/main/group_final_notebook.ipynb)**
