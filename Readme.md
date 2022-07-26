@@ -1,6 +1,6 @@
 # Natural Language Processing Group Project
 
-> - 📰 **Link to Google slide for general audience click here: [Slide](https://docs.google.com/presentation/d/11sdeznu67SOP-amt2v3Uv2tNwwb1f7UcrvsqDZrYLCc/edit?usp=sharing)**
+> - 📰 **Link to Google slide for general audience click here: [Slide](https://www.canva.com/design/DAFHd4qLmko/zgSiqq_c_Y4hQgINUzrI8g/edit?utm_content=DA[…]m_campaign=designshare&utm_medium=link2&utm_source=sharebutton)**
 > - 📗 **Link to final notebook click here: [MVP](https://github.com/bert-jason-ray/nlp-group-project/blob/main/group_final_notebook.ipynb)**
 
 ### Project Summary
